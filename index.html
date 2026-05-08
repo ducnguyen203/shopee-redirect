@@ -4,51 +4,59 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-  <!-- Không cho Facebook tạo preview rõ ràng -->
-  <meta name="robots" content="noindex,nofollow,noarchive"/>
+  <!-- Chặn bot index -->
+  <meta name="robots"
+        content="noindex,nofollow,noarchive,nosnippet,noimageindex"/>
 
-  <!-- XÓA hết og:title / og:site_name / og:url -->
-  <!-- Chỉ giữ ảnh nếu muốn -->
-
-  <meta property="og:image"
-        content="https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2020/10/meme-hot-1.jpg"/>
-
-  <meta property="og:image:type" content="image/jpeg"/>
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
-
+  <!-- ĐỂ TRỐNG -->
   <title></title>
+
 </head>
 
 <body>
 
 <script>
-const ua = navigator.userAgent.toLowerCase();
+(function () {
 
-const isBot =
-  ua.includes("facebookexternalhit") ||
-  ua.includes("facebot") ||
-  ua.includes("facebookcatalog") ||
-  ua.includes("twitterbot") ||
-  ua.includes("telegrambot") ||
-  ua.includes("discordbot") ||
-  ua.includes("zalo");
+  const ua = navigator.userAgent.toLowerCase();
 
-if (isBot) {
+  const isBot =
+    ua.includes("facebookexternalhit") ||
+    ua.includes("facebot") ||
+    ua.includes("facebookcatalog") ||
+    ua.includes("twitterbot") ||
+    ua.includes("telegrambot") ||
+    ua.includes("discordbot") ||
+    ua.includes("linkedinbot") ||
+    ua.includes("slackbot") ||
+    ua.includes("zalo");
 
-  // Bot Facebook vào -> trả trang trắng
-  document.body.innerHTML = "";
+  // Nếu là bot Facebook -> trả trắng hoàn toàn
+  if (isBot) {
 
-} else {
+    document.head.innerHTML = `
+      <meta charset="UTF-8">
+      <meta name="robots"
+            content="noindex,nofollow,noarchive,nosnippet,noimageindex">
+      <title></title>
+    `;
 
-  // Người dùng thật -> redirect Shopee
+    document.body.innerHTML = "";
+
+    // dừng luôn
+    throw new Error("BOT_BLOCKED");
+  }
+
+  // User thật -> redirect Shopee
   setTimeout(() => {
+
     window.location.replace(
       "https://shopee.vn/Robot-h%C3%BAt-b%E1%BB%A5i-lau-nh%C3%A0-MOVA-Z70-Ultra-Roller-L%E1%BB%B1c-h%C3%BAt-%C4%91%E1%BB%89nh-cao-36.000Pa-Ch%E1%BB%95i-ch%E1%BB%91ng-r%E1%BB%91i-T%C3%ADch-h%E1%BB%A3p-AI-B%E1%BA%A3o-h%C3%A0nh-3-n%C4%83m-i.1295271075.25398115971"
     );
-  }, 150);
 
-}
+  }, 80);
+
+})();
 </script>
 
 </body>
