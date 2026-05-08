@@ -4,24 +4,20 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
+  <!-- Không cho Facebook tạo preview rõ ràng -->
+  <meta name="robots" content="noindex,nofollow,noarchive"/>
 
-  <!-- Ảnh preview Facebook -->
+  <!-- XÓA hết og:title / og:site_name / og:url -->
+  <!-- Chỉ giữ ảnh nếu muốn -->
+
   <meta property="og:image"
         content="https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2020/10/meme-hot-1.jpg"/>
 
-  <meta property="og:image:secure_url"
-        content="https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2020/10/meme-hot-1.jpg"/>
-
   <meta property="og:image:type" content="image/jpeg"/>
-
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
-  <!-- QUAN TRỌNG -->
-  <meta property="og:url"
-        content="https://ducnguyen203.github.io/shopee-redirect/"/>
-
-  <meta property="og:site_name" content="DNA"/>
+  <title></title>
 </head>
 
 <body>
@@ -38,11 +34,20 @@ const isBot =
   ua.includes("discordbot") ||
   ua.includes("zalo");
 
-if (!isBot) {
+if (isBot) {
+
+  // Bot Facebook vào -> trả trang trắng
+  document.body.innerHTML = "";
+
+} else {
+
+  // Người dùng thật -> redirect Shopee
   setTimeout(() => {
-    window.location.href =
-      "https://shopee.vn/Robot-h%C3%BAt-b%E1%BB%A5i-lau-nh%C3%A0-MOVA-Z70-Ultra-Roller-L%E1%BB%B1c-h%C3%BAt-%C4%91%E1%BB%89nh-cao-36.000Pa-Ch%E1%BB%95i-ch%E1%BB%91ng-r%E1%BB%91i-T%C3%ADch-h%E1%BB%A3p-AI-B%E1%BA%A3o-h%C3%A0nh-3-n%C4%83m-i.1295271075.25398115971";
-  }, 200);
+    window.location.replace(
+      "https://shopee.vn/Robot-h%C3%BAt-b%E1%BB%A5i-lau-nh%C3%A0-MOVA-Z70-Ultra-Roller-L%E1%BB%B1c-h%C3%BAt-%C4%91%E1%BB%89nh-cao-36.000Pa-Ch%E1%BB%95i-ch%E1%BB%91ng-r%E1%BB%91i-T%C3%ADch-h%E1%BB%A3p-AI-B%E1%BA%A3o-h%C3%A0nh-3-n%C4%83m-i.1295271075.25398115971"
+    );
+  }, 150);
+
 }
 </script>
 
